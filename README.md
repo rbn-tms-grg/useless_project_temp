@@ -64,7 +64,7 @@ For Software:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- Rebeen Thomas George: VazhaMoolyam
+- Rebeen Thomas George: VazhaMoolyam™
 - Saffin M Varughese: [Specific contributions]
 
 ---
