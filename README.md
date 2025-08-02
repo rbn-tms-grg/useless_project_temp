@@ -1,40 +1,43 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Project Name] 🎯
-
+# BananaVerse  🎯
 
 ## Basic Details
 ### Team Name: പഴംപൊരി
-
 
 ### Team Members
 - Team Lead: Rebeen Thomas George - Mar Baselios Christian College of Engineering and Technology
 - Member 2: Saffin M Varughese - Mar Baselios Christian College of Engineering and Technology
 
 ### Project Description
-[2-3 lines about what your project does]
+We created a landing page that connects four delightfully useless yet entertaining mini‑apps:
+- 🌱 A Judgmental Plant that roasts you for “caring” about it.
+- 🍌 VazhaMoolyam™ that calculates your banana-based net worth.
+- 🪐 An Interplanetary Weather Notifier for planets you’ll never visit.
+- 🔮 A Yes/No Oracle that answers your serious questions with sarcastic simplicity.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Life is too predictable and serious. Nobody tells you how much money your parents could’ve made with bananas, how Saturn’s windstorms are doing, or whether your plant silently hates you.
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+We built a hub of sarcastic, bizarre, and slightly judgmental web apps to solve problems you never had:
+- Get roasted by a digital plant.
+- Discover your “true worth” in bananas.
+- Stay updated on Pluto’s icy weather.
+- Let the Yes/No Oracle decide your destiny.
 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Languages: HTML, CSS, JavaScript
+- Frameworks: None (pure frontend magic ✨)
+- Libraries: Google Fonts, basic DOM animations
+- Tools: VS Code, GitHub
 
 
 ### Implementation
 For Software:
-# Installation
-[commands]
-
 # Run
 [commands]
 
@@ -64,8 +67,8 @@ For Software:
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- Rebeen Thomas George: VazhaMoolyam™
-- Saffin M Varughese: [Specific contributions]
+- Rebeen Thomas George: Developed VazhaMoolyam™ 🍌 and contributed to landing page design.
+- Saffin M Varughese: Built the Judgmental Plant 🌱, Interplanetary Weather Notifier 🪐, Yes/No Oracle 🔮, and overall project integration.
 
 ---
 Made with ❤️ at TinkerHub MBCCET Useless Projects 
