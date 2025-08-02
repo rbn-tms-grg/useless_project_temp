@@ -44,15 +44,16 @@ For Software:
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+# Screenshots 
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img width="918" height="1087" alt="Screenshot 2025-08-02 073948" src="https://github.com/user-attachments/assets/d06bb1fa-b748-4ed2-a33d-262d8a6448c5" />
+<img width="542" height="378" alt="Screenshot 2025-08-02 074216" src="https://github.com/user-attachments/assets/8b21b4cd-4737-4bc4-a1e5-cc05ba3e1370" />
+<img width="544" height="400" alt="Screenshot 2025-08-02 074208" src="https://github.com/user-attachments/assets/cef13ccc-00c9-4178-bf42-461bafb3b789" />
+<img width="457" height="693" alt="Screenshot 2025-08-02 074109" src="https://github.com/user-attachments/assets/a71014a9-edca-4ad7-9758-208a19b16cd2" />
+<img width="794" height="1091" alt="Screenshot 2025-08-02 074048" src="https://github.com/user-attachments/assets/003bf0d0-cd0a-4359-9d59-bfdd89c8eaa6" />
+<img width="776" height="543" alt="Screenshot 2025-08-02 074036" src="https://github.com/user-attachments/assets/ff29fc19-8c15-4026-b974-7bd160fcc1e3" />
+<img width="458" height="933" alt="Screenshot 2025-08-02 074017" src="https://github.com/user-attachments/assets/dbfbdc3a-a564-4867-9e95-0c7472f9a527" />
+<img width="550" height="741" alt="Screenshot 2025-08-02 074000" src="https://github.com/user-attachments/assets/3265cb48-e53c-4ffb-81e2-f19e3a51b8b1" />
 
 
 ### Project Demo
