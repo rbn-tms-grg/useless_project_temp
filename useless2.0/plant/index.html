@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Judgmental Plant Bot</title>
+    <meta name="description" content="A sarcastic virtual plant that judges your care attempts with brutal honesty">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <div class="main-card">
+            <!-- Header -->
+            <h1 class="title">Your Judgmental Plant</h1>
+            <div class="stats">
+                <p id="stats-text">💧 Waters: 0 | ☀️ Sun: 0</p>
+                <p id="session-text" class="session-stats">Session: 0 actions</p>
+                <p id="status-text" class="status-text">Status: neutral</p>
+                <p id="recovery-text" class="recovery-text" style="display: none;"></p>
+            </div>
+
+            <!-- Plant Display -->
+            <div class="plant-container">
+                <div id="plant-wrapper" class="plant-wrapper">
+                    <!-- Sun indicator -->
+                    <div class="sun-indicator">
+                        <div id="sun-icon" class="sun-icon">☀️</div>
+                    </div>
+
+                    <!-- Plant SVG -->
+                    <div class="plant-svg-container">
+                        <svg width="200" height="250" viewBox="0 0 200 250" class="plant-svg">
+                            <!-- Pot -->
+                            <ellipse cx="100" cy="230" rx="45" ry="8" fill="#8B4513" opacity="0.3"/>
+                            <rect x="55" y="200" width="90" height="40" rx="5" fill="#D2691E"/>
+                            <rect x="58" y="203" width="84" height="34" rx="3" fill="#CD853F"/>
+                            
+                            <!-- Soil -->
+                            <ellipse id="soil" cx="100" cy="205" rx="38" ry="6" fill="#8B4513"/>
+                            
+                            <!-- Main stem -->
+                            <rect id="stem" x="97" y="160" width="6" height="45" fill="#228B22" rx="3"/>
+                            
+                            <!-- Leaves container -->
+                            <g id="leaves-container">
+                                <!-- Default healthy leaves -->
+                                <ellipse cx="85" cy="170" rx="15" ry="25" fill="#32CD32" transform="rotate(-30 85 170)"/>
+                                <ellipse cx="115" cy="165" rx="18" ry="28" fill="#228B22" transform="rotate(25 115 165)"/>
+                                <ellipse cx="100" cy="145" rx="12" ry="20" fill="#32CD32" transform="rotate(0 100 145)"/>
+                            </g>
+                            
+                            <!-- Face on the pot -->
+                            <g id="face" transform="translate(100, 220)">
+                                <!-- Default neutral face -->
+                                <circle cx="-6" cy="-3" r="2" fill="#2F4F4F"/>
+                                <circle cx="6" cy="-3" r="2" fill="#2F4F4F"/>
+                                <line x1="-6" y1="5" x2="6" y2="5" stroke="#2F4F4F" stroke-width="2"/>
+                            </g>
+                            
+                            <!-- Dropped leaves container -->
+                            <g id="dropped-leaves"></g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Progress indicator -->
+                <div id="progress-indicator" class="progress-indicator" style="display: none;">
+                    📋 "Progress": <span id="progress-text">Still disappointing</span>
+                </div>
+            </div>
+
+            <!-- Roast Speech Bubble -->
+            <div class="speech-bubble">
+                <p id="roast-text">"Oh look, another human seeking validation from a plant. How original."</p>
+            </div>
+
+            <!-- Control Buttons -->
+            <div class="button-container">
+                <button id="water-btn" class="action-button water-button">
+                    💧 Water Me
+                </button>
+                <button id="sun-btn" class="action-button sun-button">
+                    ☀️ Give Sun
+                </button>
+            </div>
+
+            <!-- Achievements -->
+            <div id="achievements" class="achievements-container" style="display: none;">
+                <h3 class="achievements-title">Dubious Achievements</h3>
+                <div id="achievements-list" class="achievements-list"></div>
+            </div>
+
+            <!-- Plant Status -->
+            <div class="status-container">
+                <div class="status-title">Current Status: <span id="current-status">neutral</span></div>
+                <div id="status-message" class="status-message">
+                    🌱 "I suppose you're not completely hopeless..."
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                Warning: This plant's self-esteem grows inversely to yours
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

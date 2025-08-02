@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Verse - Where Logic Goes to Die</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .stats-banner {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stats-banner h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            opacity: 0.9;
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #ffd700;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .app-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .app-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            animation: iconFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .app-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .app-description {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .app-button {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .app-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .floating-banana {
+            position: fixed;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .footer {
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-top: 3rem;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+            
+            .logo {
+                font-size: 2.8rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">🍌 Banana Verse</h1>
+            <p class="tagline">Where logic goes to die</p>
+        </header>
+
+        <div class="stats-banner">
+            <h3>🎭 Totally Legit Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">404</span>
+                    <div class="stat-label">Brain Cells Lost</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">∞</span>
+                    <div class="stat-label">Questions Asked</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0</span>
+                    <div class="stat-label">Useful Answers</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">42</span>
+                    <div class="stat-label">Meaning of Life</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="apps-grid">
+            <div class="app-card" onclick="navigateToApp('plant')">
+                <span class="app-icon">🌱</span>
+                <h2 class="app-title">Judgmental Plant</h2>
+                <p class="app-description">A plant that judges your plant care skills. Spoiler: you're not great at this.</p>
+                <a href="../useless2.0/plant/index.html" class="app-button" onclick="event.stopPropagation(); navigateToApp('plant')">Get Judged</a>
+            </div>
+
+            <div class="app-card" onclick="navigateToApp('banana-calculator')">
+                <span class="app-icon">🍌</span>
+                <h2 class="app-title">Banana Calculator</h2>
+                <p class="app-description">Calculate your net worth in bananas. Finally, a currency that makes sense.</p>
+                <a href="../useless2.0/vazha/vazha.html" class="app-button" onclick="event.stopPropagation(); navigateToApp('banana-calculator')">Calculate</a>
+            </div>
+
+            <div class="app-card" onclick="navigateToApp('space-weather')">
+                <span class="app-icon">🪐</span>
+                <h2 class="app-title">Space Weather</h2>
+                <p class="app-description">Weather updates from planets you'll never visit. At least Mars isn't raining.</p>
+                <a href="../useless2.0/we/index.html" class="app-button" onclick="event.stopPropagation(); navigateToApp('space-weather')">Check Weather</a>
+            </div>
+
+            <div class="app-card" onclick="navigateToApp('oracle')">
+                <span class="app-icon">🔮</span>
+                <h2 class="app-title">Yes/No Oracle</h2>
+                <p class="app-description">Ask questions, get sarcastic answers. Like a magic 8-ball with attitude.</p>
+                <a href="../useless2.0/askQ/index.html" class="app-button" onclick="event.stopPropagation(); navigateToApp('oracle')">Ask Oracle</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>Made with questionable decisions ✨</p>
+        </footer>
+    </div>
+
+    <!-- Simple floating bananas -->
+    <div class="floating-banana" style="left: 10%; animation-delay: 0s;">🍌</div>
+    <div class="floating-banana" style="left: 80%; animation-delay: 2s;">🍌</div>
+    <div class="floating-banana" style="left: 90%; animation-delay: 4s;">🍌</div>
+
+    <script>
+        function navigateToApp(appName) {
+            const appUrls = {
+                'plant': './plant-app.html',
+                'banana-calculator': './banana-calculator.html', 
+                'space-weather': './space-weather.html',
+                'oracle': './oracle.html'
+            };
+            
+            if (appUrls[appName]) {
+                window.location.href = appUrls[appName];
+            } else {
+                alert(`Would navigate to ${appName} app. Update the URL in the code.`);
+            }
+        }
+
+        // Add occasional floating bananas
+        function createFloatingBanana() {
+            const banana = document.createElement('div');
+            banana.innerHTML = '🍌';
+            banana.className = 'floating-banana';
+            banana.style.left = Math.random() * 90 + '%';
+            banana.style.animationDelay = Math.random() * 6 + 's';
+            document.body.appendChild(banana);
+            
+            setTimeout(() => {
+                banana.remove();
+            }, 6000);
+        }
+
+        setInterval(createFloatingBanana, 8000);
+    </script>
+</body>
+</html>
