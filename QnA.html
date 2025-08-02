@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yes/No Oracle</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Question Marks */
+        .question-mark {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 3rem;
+            pointer-events: none;
+            animation: float 10s linear infinite, shake 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+            }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-5px) rotate(-5deg); }
+            75% { transform: translateX(5px) rotate(5deg); }
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+
+        h1 {
+            color: #1a202c;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #667eea;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #5a67d8;
+        }
+
+        button:disabled {
+            background-color: #cbd5e0;
+            cursor: not-allowed;
+        }
+
+        .answer {
+            margin-top: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            min-height: 2rem;
+            color: #2d3748;
+        }
+
+        .answer.yes {
+            color: #48bb78;
+        }
+
+        .answer.no {
+            color: #f56565;
+        }
+
+        .answer-container {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease-out;
+        }
+
+        .answer-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .nav-button {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #667eea;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            width: auto;
+            transition: transform 0.2s;
+        }
+
+        .nav-button:disabled {
+            color: #cbd5e0;
+            cursor: not-allowed;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            transform: scale(1.1);
+        }
+
+        .question-display {
+            text-align: center;
+            color: #4a5568;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+            flex-grow: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .page-counter {
+            font-size: 0.8rem;
+            color: #718096;
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="background"></div>
+    <div class="container">
+        <h1>✨ Ask Your Question</h1>
+        <div class="input-group">
+            <input 
+                type="text" 
+                id="questionInput" 
+                placeholder="Type your question here..."
+                autocomplete="off"
+            >
+        </div>
+        <button id="askButton" disabled>Get Answer</button>
+        <div class="answer-container" id="answerContainer">
+            <div class="answer" id="answer"></div>
+        </div>
+        <div class="navigation">
+            <button id="prevButton" class="nav-button" disabled>←</button>
+            <div class="question-display" id="questionDisplay"></div>
+            <button id="nextButton" class="nav-button" disabled>→</button>
+        </div>
+        <div class="page-counter" id="pageCounter"></div>
+    </div>
+
+    <script>
+        // Create animated question marks
+        function createQuestionMarks() {
+            const background = document.body;
+            const numQuestionMarks = 15;
+
+            for (let i = 0; i < numQuestionMarks; i++) {
+                const questionMark = document.createElement('div');
+                questionMark.className = 'question-mark';
+                questionMark.textContent = '?';
+                
+                // Random initial position
+                questionMark.style.left = `${Math.random() * 100}vw`;
+                questionMark.style.animationDelay = `${Math.random() * 10}s`;
+                questionMark.style.fontSize = `${Math.random() * 2 + 2}rem`;
+                
+                background.appendChild(questionMark);
+            }
+        }
+
+        createQuestionMarks();
+
+        const questionInput = document.getElementById('questionInput');
+        const askButton = document.getElementById('askButton');
+        const answer = document.getElementById('answer');
+        const answerContainer = document.getElementById('answerContainer');
+        const prevButton = document.getElementById('prevButton');
+        const nextButton = document.getElementById('nextButton');
+        const questionDisplay = document.getElementById('questionDisplay');
+        const pageCounter = document.getElementById('pageCounter');
+
+        let history = [];
+        let currentIndex = -1;
+
+        function updateNavigation() {
+            prevButton.disabled = currentIndex <= 0;
+            nextButton.disabled = currentIndex >= history.length - 1;
+            
+            if (history.length > 0) {
+                const current = history[currentIndex];
+                questionDisplay.textContent = current.question;
+                answer.textContent = current.answer;
+                answer.className = 'answer ' + (current.answer === 'Yes!' ? 'yes' : 'no');
+                answerContainer.classList.add('show');
+                pageCounter.textContent = `${currentIndex + 1} of ${history.length}`;
+            } else {
+                questionDisplay.textContent = '';
+                answer.textContent = '';
+                pageCounter.textContent = '';
+            }
+        }
+
+        questionInput.addEventListener('input', () => {
+            askButton.disabled = !questionInput.value.trim();
+        });
+
+        askButton.addEventListener('click', () => {
+            const question = questionInput.value.trim();
+            if (!question) return;
+
+            askButton.disabled = true;
+            answerContainer.classList.remove('show');
+
+            setTimeout(() => {
+                const isYes = Math.random() < 0.5;
+                const newAnswer = isYes ? 'Yes!' : 'No!';
+                
+                history.push({ question, answer: newAnswer });
+                currentIndex = history.length - 1;
+                
+                updateNavigation();
+                questionInput.value = '';
+            }, 300);
+        });
+
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                answerContainer.classList.remove('show');
+                setTimeout(() => {
+                    currentIndex--;
+                    updateNavigation();
+                }, 300);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < history.length - 1) {
+                answerContainer.classList.remove('show');
+                setTimeout(() => {
+                    currentIndex++;
+                    updateNavigation();
+                }, 300);
+            }
+        });
+
+        questionInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !askButton.disabled) {
+                askButton.click();
+            }
+        });
+
+        // Recreate question marks periodically
+        setInterval(() => {
+            const questionMarks = document.querySelectorAll('.question-mark');
+            questionMarks.forEach(mark => {
+                if (parseFloat(getComputedStyle(mark).top) < -100) {
+                    mark.remove();
+                }
+            });
+            if (questionMarks.length < 15) {
+                createQuestionMarks();
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
