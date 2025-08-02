@@ -58,11 +58,10 @@ For Software:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/file/d/1pyMnpPFi6GSFxx8tzQCLjajXv1UOi3k4/view?usp=drivesdk
 
-# Additional Demos
-[Add any extra demo materials/links]
+*The video demonstrates the wroking of BananaVerse*
+
 
 ## Team Contributions
 - Rebeen Thomas George: Developed VazhaMoolyam™ 🍌 and contributed to landing page design.
